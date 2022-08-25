@@ -33,6 +33,8 @@ jobs:
             ~/.cargo/git/db/
             ./target/
           key: cargo-${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.lock') }}
+      - run: rustc -V
+      - run: cargo -V
       - run: cargo build
       - run: cargo fmt -- --check
       - run: cargo clippy --all-targets -- -D warnings
