@@ -23,6 +23,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      - run: rustc -V
       - uses: actions/cache@v2
         name: Cache Cargo registry + index
         id: cache-cargo-build
