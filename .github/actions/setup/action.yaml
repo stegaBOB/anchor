@@ -9,3 +9,5 @@ runs:
         shell: bash
       - run: git submodule update --init --recursive --depth 1
         shell: bash
+      - run: rustup update
+        shell: bash
