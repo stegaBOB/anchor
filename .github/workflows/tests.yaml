@@ -4,9 +4,7 @@ on:
   push:
     branches:
       - master
-  pull_request:
-    branches:
-      - master
+
 env:
   SOLANA_CLI_VERSION: 1.10.29
   NODE_VERSION: 17.0.1
@@ -33,8 +31,8 @@ jobs:
             ~/.cargo/git/db/
             ./target/
           key: cargo-${{ runner.os }}-cargo-build-${{ hashFiles('**/Cargo.lock') }}
+      - run: rustup update
       - run: rustc -V
-      - run: cargo -V
       - run: cargo build
       - run: cargo fmt -- --check
       - run: cargo clippy --all-targets -- -D warnings
